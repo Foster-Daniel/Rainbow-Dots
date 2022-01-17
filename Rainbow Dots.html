@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello, World!</title>
+		<style>
+			body {
+				background-color: rgb(20, 0, 20);
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.circle {
+				display: block;
+				border-radius: 50%;
+				border: 1px black solid;
+				height: 2em;
+				width: 2em;
+				margin: .5em;
+				animation: rainbow 10s infinite linear;
+				box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+				transition: background-color 4s;
+			}
+			span {
+				display: block;
+				position: relative;
+				border-radius: 50%;
+				border: 1px black solid;
+				background-color: rgba(255, 255, 255, 0);
+				height: 2em;
+				width: 2em;
+				top: -.5em;
+				left: -.5em;
+				margin: .5em;
+				box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+				transition: background-color 4s;
+			}
+			.box:hover span {
+				background-color: rgba(255, 255, 255, 1);
+				transition: background-color 0s;
+			}
+			.box:hover > .circle { display: hidden;}
+
+			@keyframes rainbow {
+				0%, 100% { background-color: red; }
+				10% { background-color: coral; }
+				20% { background-color: orange; }
+				30% { background-color: yellow; }
+				40% { background-color: lime; }
+				50% { background-color: green; }
+				60% { background-color: rgb(200, 200, 254); }
+				70% { background-color: blue; }
+				80% { background-color: purple; }
+				90% { background-color: pink; }
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			const BODY = document.getElementsByTagName("body")[0]
+			const LIMIT = 1450
+			for (let i = 0; i < LIMIT; i++)
+				BODY.innerHTML += '<div class="box"><div class="circle"><span></span></div></div>'
+		</script>
+	</body>
+</html>
